@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resources([
-    'ciudad' => 'CiudadController'
+    'ciudad' => 'CiudadController',
+    'producto' => 'ProductoController'
 ]);
