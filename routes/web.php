@@ -18,5 +18,6 @@ Route::get('/', function () {
 Route::resources([
     'ciudad' => 'CiudadController',
     'producto' => 'ProductoController',
-    'local' => 'LocalController'
+    'local' => 'LocalController',
+    'permiso' => 'PermisoController'
 ]);
