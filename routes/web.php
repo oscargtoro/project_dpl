@@ -19,5 +19,6 @@ Route::resources([
     'ciudad' => 'CiudadController',
     'producto' => 'ProductoController',
     'local' => 'LocalController',
-    'permiso' => 'PermisoController'
+    'permiso' => 'PermisoController',
+    'rol' => 'RolController'
 ]);
