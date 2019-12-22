@@ -1,10 +1,17 @@
+import $ from 'jquery';	
+window.jQuery = $;
+window.$ = $;
+
+
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import './bootstrap';
+import '../../node_modules/select2/dist/js/select2'; 
 
 window.Vue = require('vue');
 

@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	
-	<script>
+	<script type="application/javascript">
 		$(document).ready(function() {
 			$('.m-sel').select2({
 				theme: 'bootstrap4',
