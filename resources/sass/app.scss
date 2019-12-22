@@ -1,11 +1,16 @@
-//Bootstrap
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+//Fontawesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+// Variables
+@import 'variables';
+
+// Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 //Select2
 @import '~select2/src/scss/core';
 @import'~@ttskch/select2-bootstrap4-theme/src/layout.scss';
-
-//Fontawesome
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
-@import "~@fortawesome/fontawesome-free/scss/brands.scss";

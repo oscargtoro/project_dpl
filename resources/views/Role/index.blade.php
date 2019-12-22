@@ -10,7 +10,7 @@
 
 @section('content')
 <table class="table table-hover table-striped">
-    <thead class="thead-dark">
+    <thead class="table-primary">
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Creado</th>
