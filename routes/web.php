@@ -16,12 +16,13 @@ Route::get('/', function () {
 });
 
 Route::resources([
-    'city' => 'CityController',
     'product' => 'ProductController',
+    'city' => 'CityController',
     'local' => 'LocalController',
     'permission' => 'PermissionController',
     'role' => 'RoleController'
 ]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

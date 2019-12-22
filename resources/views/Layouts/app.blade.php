@@ -49,6 +49,26 @@
                                 </li>
                             @endif
                         @else
+                        <ul class="nav nav-pills">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link @if(request()->is('home*')) active @endif" data-toggle="dropdown" href="{{ route('home') }}" aria-haspopup="true" aria-expanded="false">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(request()->is('product*')) active @endif" href="{{ route('product.index') }}">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(request()->is('city*')) active @endif" href="{{ route('city.index') }}">Ciudades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(request()->is('local*')) active @endif" href="{{ route('local.index') }}">Locales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(request()->is('permission*')) active @endif" href="{{ route('permission.index') }}">Permisos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(request()->is('role*')) active @endif" href="{{ route('role.index') }}">Roles</a>
+                              </li>
+                          </ul>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

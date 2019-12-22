@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\City;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -40,6 +41,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    function showRegistrationForm() 
+    {
+        $cities = City::all();
+        return view('auth.register', compact('cities'));
+    }
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,7 +57,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'max:255', 'unique:users'],
+            'gender' => ['required', 'string', 'max:255'],
+            'city_id'  => ['required', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -63,9 +73,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //print_r($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'lastName' => $data['lastName'],
+            'gender' => $data['gender'],
+            'city_id' => $data['city_id'],
             'password' => Hash::make($data['password']),
         ]);
     }

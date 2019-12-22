@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="lastName" class="col-md-4 col-form-label text-md-right">Apellido(s)</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Apellido(s)</label>
 
                             <div class="col-md-6">
                                 <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
@@ -40,12 +40,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="gender" type="gender" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender">
 
-                                @error('email')
+                                @error('gender')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -57,12 +57,8 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">Genero</label>
 
                             <div class="col-md-6">
-                                <select id="city" type="city" class="form-control @error('gender') is-invalid @enderror" name="gender" required>
-                                    <option selected>Seleccione...</option>
-                                    <option value='M'>Hombre</option>
-                                    <option value='F'>Mujer</option>
-                                    <option value='U'>No definido</option>
-                                </select>
+                                <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender">
+
                                 @error('gender')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -72,11 +68,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="city_id" class="col-md-4 col-form-label text-md-right">Ciudad</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">Ciudad</label>
 
                             <div class="col-md-6">
-                                <select id="city_id" class="form-control @error('city_id') is-invalid @enderror" name="city_id" required>
-                                    <option selected>Seleccione...</option>
+                                <select id="gender" type="gender" class="form-control @error('gender') is-invalid @enderror" name="city_id" required autocomplete="gender">
                                     @foreach ($cities as $city)
                                         <option value="{{$city->id}}">{{$city->name}}</option>
                                     @endforeach
