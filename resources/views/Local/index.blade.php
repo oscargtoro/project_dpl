@@ -27,16 +27,16 @@
         @include('common.success')
             @foreach($locales as $local)
                 <tr>
-                    <td>{{$local->codigo}}</td>
-                    <td>{{$local->nombre}}</td>
+                    <td>{{$local->localCod}}</td>
+                    <td>{{$local->localNom}}</td>
                     <td class="text-center">
-                        <form method="POST" action="/local/{{$local->codigo}}" accept-charset="UTF-8" 
+                        <form method="POST" action="/local/{{$local->localCod}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
                             @method('DELETE')				
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
                         </form>
-                        <a href="/local/{{$local->codigo}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                        <a href="/local/{{$local->localCod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach

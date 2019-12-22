@@ -14,7 +14,7 @@
 					@csrf			
 					<div class="form-group">
 						<label for="comuna">Ciudad</label>
-						<input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="comunalHelp">
+						<input type="text" class="form-control" name="ciudadNom" id="nombre" aria-describedby="comunalHelp">
 						<small id="comunalHelp" class="form-text text-muted">Nombre de la ciudad.</small>
 					</div>
 					<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Grabar </button>				

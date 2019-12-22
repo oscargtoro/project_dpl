@@ -8,12 +8,12 @@
 		<div class="col-sm">
 			<div class="card" style="margin-top: 10px;">
 				<div class="card-body">
-					<form method="POST" action="/local/{{$local->codigo}}" accept-charset="UTF-8" style="display:inline">
+					<form method="POST" action="/local/{{$local->localCod}}" accept-charset="UTF-8" style="display:inline">
 						@csrf			
 						@method('PUT')
 						<div class="form-group">
 							<label for="nombre">Local</label>
-							<input type="text" value = '{{$local->nombre}}' class="form-control" name="nombre"/>
+							<input type="text" value = '{{$local->localNom}}' class="form-control" name="localNom"/>
 						</div>
 						<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Actualizar </button>				
 					</form>

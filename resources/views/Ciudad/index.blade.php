@@ -27,16 +27,16 @@
         @include('common.success')
             @foreach($ciudades as $ciudad)
                 <tr>
-                    <td>{{$ciudad->codigo}}</td>
-                    <td>{{$ciudad->nombre}}</td>
+                    <td>{{$ciudad->ciudadCod}}</td>
+                    <td>{{$ciudad->ciudadNom}}</td>
                     <td class="text-center">
-                        <form method="POST" action="/ciudad/{{$ciudad->codigo}}" accept-charset="UTF-8" 
+                        <form method="POST" action="/ciudad/{{$ciudad->ciudadCod}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
                             <input name="_method" type="hidden" value="DELETE">					
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
                         </form>
-                        <a href="/ciudad/{{$ciudad->codigo}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                        <a href="/ciudad/{{$ciudad->ciudadCod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach

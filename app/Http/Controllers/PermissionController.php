@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Rol;
+use App\Permission;
 
-class RolController extends Controller
+class PermisoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +15,8 @@ class RolController extends Controller
      */
     public function index()
     {
-        $roles = DB::table('tb_roles')
-        ->orderBy('rolNom')
-        ->get();
-        $rolxpermisos = DB::table('tb_rolxpermisos as rp')
-        ->join('tb_roles as r', 'rp.rolCod', '=', 'r.rolCod')
-        ->join('tb_permisos as p', 'rp.permisoCod', '=', 'p.permisoCod')
-        ->select('r.rolNom', 'p.permisoNom')
-        ->get();
-        $rows = count($rolxpermisos);
-        return view('rol.index', compact('roles', 'rolxpermisos', 'rows'));
+        $permisos = DB::table('tb_permisos')->orderBy('permisoNom')->get();
+        return view('permiso.index', compact('permisos'));
     }
 
     /**
@@ -34,7 +26,7 @@ class RolController extends Controller
      */
     public function create()
     {
-        return view('rol.create');
+        return view('permiso.create');
     }
 
     /**
@@ -45,11 +37,11 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        $rol = new Rol;
-        $rol->nombre_rol = $request->nombre;
-        $rol->save();
-        return redirect()->route('rol.index')->with('status', 'guardado');
-    }
+        /* $permiso = new Permiso;
+        $permiso->permisoNom = $request->permisoNom;
+        $permiso->save();
+        return redirect()->route('permiso.index')->with('status', 'guardado');*/
+    } 
 
     /**
      * Display the specified resource.
@@ -70,14 +62,8 @@ class RolController extends Controller
      */
     public function edit($id)
     {
-        $rol = Rol::findOrFail($id);
-        $rolxpermisos = DB::table('tb_rolxpermisos as rp')
-        ->join('tb_roles as r', 'rp.rolCod', '=', 'r.rolCod')
-        ->join('tb_permisos as p', 'rp.permisoCod', '=', 'p.permisoCod')
-        ->select('r.rolNom', 'r.rolCod', 'p.permisoNom', 'p.permisoCod')
-        ->get();
-        return view('rol.edit', compact('rol', 'rolxpermisos'));
-        //return $rolxpermisos;
+        /* $permiso = Permiso::findOrFail($id);
+        return view('permiso.edit', compact('permiso')); */
     }
 
     /**
@@ -89,10 +75,10 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rol = Rol::findOrFail($id);
-        $rol->nombre_rol = $request->nombre;
-        $rol->save();
-        return redirect()->route('rol.index')->with('status', 'actualizado');
+        /* $permiso = Permiso::findOrFail($id);
+        $permiso->permisoNom = $request->permisoNom;
+        $permiso->save();
+        return redirect()->route('permiso.index')->with('status', 'actualizado'); */
     }
 
     /**
@@ -103,6 +89,8 @@ class RolController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /* $permiso = Permiso::findOrFail($id);
+        $permiso->delete();
+        return redirect()->route('permiso.index')->with('status', 'eliminado'); */
     }
 }

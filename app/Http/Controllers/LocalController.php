@@ -15,7 +15,7 @@ class LocalController extends Controller
      */
     public function index()
     {
-        $locales = DB::table('tb_locales')->orderBy('nombre')->get();
+        $locales = DB::table('tb_locales')->orderBy('localNom')->get();
         return view('local.index', compact('locales'));
     }
 
@@ -38,7 +38,7 @@ class LocalController extends Controller
     public function store(Request $request)
     {
         $local = new Local;
-        $local->nombre = $request->nombre;
+        $local->localNom = $request->localNom;
         $local->save();
         return redirect()->route('local.index')->with('status', 'guardado');
     }
@@ -76,7 +76,7 @@ class LocalController extends Controller
     public function update(Request $request, $id)
     {
         $local = Local::findOrFail($id);
-        $local->nombre = $request->nombre;
+        $local->localNom = $request->localNom;
         $local->save();
         return redirect()->route('local.index')->with('status', 'actualizado');
     }

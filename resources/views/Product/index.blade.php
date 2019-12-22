@@ -15,7 +15,7 @@
         <th scope="col">Codigo</th>
         <th scope="col">Producto</th>
         <th class="text-center">
-            <a href="/producto/create" class="btn btn-primary btn-sm" id="nuevo"  
+            <a href="/product/create" class="btn btn-primary btn-sm" id="nuevo"  
                 data-toggle="tooltip" title="Nuevo producto">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Nuevo
@@ -25,18 +25,18 @@
     </thead>
     <tbody>
         @include('common.success')
-            @foreach($productos as $producto)
+            @foreach($products as $product)
                 <tr>
-                    <td>{{$producto->codigo}}</td>
-                    <td>{{$producto->nombre}}</td>
+                    <td>{{$product->id}}</td>
+                    <td>{{$product->name}}</td>
                     <td class="text-center">
-                        <form method="POST" action="/producto/{{$producto->codigo}}" accept-charset="UTF-8" 
+                        <form method="POST" action="/product/{{$product->id}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
                             @method('DELETE')				
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
                         </form>
-                        <a href="/producto/{{$producto->codigo}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                        <a href="/product/{{$product->id}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach

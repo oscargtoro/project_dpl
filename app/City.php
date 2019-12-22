@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Ciudad extends Model
 {
     protected $table = 'tb_ciudades';
-    protected $fillable = ['nombre'];
-    protected $primaryKey = 'codigo';
+    protected $fillable = ['ciudadNom'];
+    protected $primaryKey = 'ciudadCod';
 }

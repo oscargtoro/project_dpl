@@ -27,16 +27,16 @@
         @include('common.success')
             @foreach($permisos as $permiso)
                 <tr>
-                    <td>{{$permiso->codigo}}</td>
-                    <td>{{$permiso->nombre}}</td>
+                    <td>{{$permiso->permisoCod}}</td>
+                    <td>{{$permiso->permisoNom}}</td>
                     <td class="text-center">
-                        <form method="POST" action="/permiso/{{$permiso->codigo}}" accept-charset="UTF-8" 
+                        <form method="POST" action="/permiso/{{$permiso->permisoCod}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
                             @method('DELETE')				
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
                         </form>
-                        <a href="/permiso/{{$permiso->codigo}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                        <a href="/permiso/{{$permiso->permisoCod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach

@@ -8,12 +8,12 @@
 		<div class="col-sm">
 			<div class="card" style="margin-top: 10px;">
 				<div class="card-body">
-					<form method="POST" action="/permiso/{{$permiso->codigo}}" accept-charset="UTF-8" style="display:inline">
+					<form method="POST" action="/permiso/{{$permiso->permisoCod}}" accept-charset="UTF-8" style="display:inline">
 						@csrf			
 						@method('PUT')
 						<div class="form-group">
 							<label for="nombre">Permiso</label>
-							<input type="text" value = '{{$permiso->nombre}}' class="form-control" name="nombre"/>
+							<input type="text" value = '{{$permiso->permisoNom}}' class="form-control" name="permisoNom"/>
 						</div>
 						<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Actualizar </button>				
 					</form>

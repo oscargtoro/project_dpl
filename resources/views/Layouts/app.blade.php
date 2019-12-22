@@ -2,15 +2,10 @@
 <html>
 <head>
 	<title>M2GTI- @yield('title')</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" 
 	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-	@yield('link1')
-	@yield('link2')
-
-
-	
+	<script src="/js/app.js"></script>
+	<link rel="stylesheet" href="/css/app.css" >
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-primary">
@@ -25,10 +20,5 @@
 		@yield('content')
 
 	</div>
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
-     -->
- 
 </body>
 </html>

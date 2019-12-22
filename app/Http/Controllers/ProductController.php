@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Permiso;
+use App\Product;
 
-class PermisoController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PermisoController extends Controller
      */
     public function index()
     {
-        $permisos = DB::table('tb_permisos')->orderBy('nombre')->get();
-        return view('permiso.index', compact('permisos'));
+        $products = Product::all()->sortBy('name');
+        return view('product.index', compact('products'));
     }
 
     /**
@@ -26,7 +25,7 @@ class PermisoController extends Controller
      */
     public function create()
     {
-        return view('permiso.create');
+        return view('product.create');
     }
 
     /**
@@ -37,10 +36,10 @@ class PermisoController extends Controller
      */
     public function store(Request $request)
     {
-        $permiso = new Permiso;
-        $permiso->nombre = $request->nombre;
-        $permiso->save();
-        return redirect()->route('permiso.index')->with('status', 'guardado');
+        $product = new Product;
+        $product->name = $request->name;
+        $product->save();
+        return redirect()->route('product.index')->with('status', 'guardado');
     }
 
     /**
@@ -62,8 +61,8 @@ class PermisoController extends Controller
      */
     public function edit($id)
     {
-        $permiso = Permiso::findOrFail($id);
-        return view('permiso.edit', compact('permiso'));
+        $product = Product::findOrFail($id);
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -75,10 +74,10 @@ class PermisoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $permiso = Permiso::findOrFail($id);
-        $permiso->nombre = $request->nombre;
-        $permiso->save();
-        return redirect()->route('permiso.index')->with('status', 'actualizado');
+        $product = Product::findOrFail($id);
+        $product->name = $request->name;
+        $product->save();
+        return redirect()->route('product.index')->with('status', 'actualizado');
     }
 
     /**
@@ -89,8 +88,8 @@ class PermisoController extends Controller
      */
     public function destroy($id)
     {
-        $permiso = Permiso::findOrFail($id);
-        $permiso->delete();
-        return redirect()->route('permiso.index')->with('status', 'eliminado');
+        $producto = Product::findOrFail($id);
+        $producto->delete();
+        return redirect()->route('product.index')->with('status', 'eliminado');
     }
 }

@@ -17,7 +17,7 @@ class CiudadController extends Controller
     public function index()
     {
         $ciudades = DB::table('tb_ciudades')
-                    ->orderBy('nombre')
+                    ->orderBy('ciudadNom')
                     ->get();
         return view('Ciudad.index', compact('ciudades'));
     }
@@ -29,7 +29,7 @@ class CiudadController extends Controller
      */
     public function create()
     {
-        return view('ciudad.create');
+        return view('city.create');
     }
 
     /**
@@ -41,9 +41,9 @@ class CiudadController extends Controller
     public function store(Request $request)
     {
         $ciudad = new Ciudad;
-        $ciudad->nombre = $request->nombre;
+        $ciudad->ciudadNom = $request->ciudadNom;
         $ciudad->save();
-        return redirect()->route('ciudad.index')->with('status', 'guardado');
+        return redirect()->route('city.index')->with('status', 'guardado');
     }
 
     /**
@@ -66,7 +66,7 @@ class CiudadController extends Controller
     public function edit($id)
     {
         $ciudad = Ciudad::findOrFail($id);
-        return view('ciudad.edit', compact('ciudad'));
+        return view('city.edit', compact('ciudad'));
     }
 
     /**
@@ -81,7 +81,7 @@ class CiudadController extends Controller
         $ciudad = Ciudad::findOrFail($id);
         $ciudad->fill($request->all());
         $ciudad->save();
-        return redirect()->route('ciudad.index')->with('status', 'actualizado');
+        return redirect()->route('city.index')->with('status', 'actualizado');
     }
 
     /**
@@ -92,8 +92,8 @@ class CiudadController extends Controller
      */
     public function destroy($id)
     {
-        $comuna = Comuna::findOrFail($id);
-        $comuna->delete();
-        return redirect()->route('ciudad.index')->with('status', 'eliminado');
+        $ciudad = Ciudad::findOrFail($id);
+        $ciudad->delete();
+        return redirect()->route('city.index')->with('status', 'eliminado');
     }
 }
