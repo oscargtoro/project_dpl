@@ -15,7 +15,12 @@
         <th scope="col">Codigo</th>
         <th scope="col">permiso</th>
         <th class="text-center">
-            <a href="/permiso/create" class="btn btn-primary btn-sm" id="nuevo"  
+            <a href="/" class="btn btn-primary btn-sm" id="volver"  
+                data-toggle="tooltip" title="volver a roles">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Regresar
+                </a>
+            <a href="/permission/create" class="btn btn-primary btn-sm" id="nuevo"  
                 data-toggle="tooltip" title="Nuevo permiso">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Nuevo
@@ -25,18 +30,18 @@
     </thead>
     <tbody>
         @include('common.success')
-            @foreach($permisos as $permiso)
+            @foreach($permissions as $permission)
                 <tr>
-                    <td>{{$permiso->permisoCod}}</td>
-                    <td>{{$permiso->permisoNom}}</td>
+                    <td>{{$permission->id}}</td>
+                    <td>{{$permission->name}}</td>
                     <td class="text-center">
-                        <form method="POST" action="/permiso/{{$permiso->permisoCod}}" accept-charset="UTF-8" 
+                        <form method="POST" action="/permission/{{$permission->id}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
                             @method('DELETE')				
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
                         </form>
-                        <a href="/permiso/{{$permiso->permisoCod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                        <a href="/permission/{{$permission->id}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach

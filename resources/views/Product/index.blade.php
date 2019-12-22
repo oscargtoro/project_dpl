@@ -15,6 +15,11 @@
         <th scope="col">Codigo</th>
         <th scope="col">Producto</th>
         <th class="text-center">
+            <a href="/" class="btn btn-primary btn-sm" id="volver"  
+                data-toggle="tooltip" title="volver a roles">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Regresar
+                </a>
             <a href="/product/create" class="btn btn-primary btn-sm" id="nuevo"  
                 data-toggle="tooltip" title="Nuevo producto">
                 <i class="fa fa-plus" aria-hidden="true"></i>

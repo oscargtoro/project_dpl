@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Permission;
 
-class PermisoController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PermisoController extends Controller
      */
     public function index()
     {
-        $permisos = DB::table('tb_permisos')->orderBy('permisoNom')->get();
-        return view('permiso.index', compact('permisos'));
+        $permissions = Permission::all()->sortBy('name');
+        return view('permission.index', compact('permissions'));
     }
 
     /**
@@ -26,7 +25,7 @@ class PermisoController extends Controller
      */
     public function create()
     {
-        return view('permiso.create');
+        return view('permission.create');
     }
 
     /**
@@ -37,10 +36,10 @@ class PermisoController extends Controller
      */
     public function store(Request $request)
     {
-        /* $permiso = new Permiso;
-        $permiso->permisoNom = $request->permisoNom;
-        $permiso->save();
-        return redirect()->route('permiso.index')->with('status', 'guardado');*/
+        $permission = new Permission;
+        $permission->name = $request->name;
+        $permission->save();
+        return redirect()->route('permission.index')->with('status', 'guardado');
     } 
 
     /**
@@ -62,8 +61,8 @@ class PermisoController extends Controller
      */
     public function edit($id)
     {
-        /* $permiso = Permiso::findOrFail($id);
-        return view('permiso.edit', compact('permiso')); */
+        $permission = Permission::findOrFail($id);
+        return view('permission.edit', compact('permission'));
     }
 
     /**
@@ -75,10 +74,10 @@ class PermisoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /* $permiso = Permiso::findOrFail($id);
-        $permiso->permisoNom = $request->permisoNom;
-        $permiso->save();
-        return redirect()->route('permiso.index')->with('status', 'actualizado'); */
+        $permission = Permission::findOrFail($id);
+        $permission->name = $request->name;
+        $permission->save();
+        return redirect()->route('permission.index')->with('status', 'actualizado');
     }
 
     /**
@@ -89,8 +88,8 @@ class PermisoController extends Controller
      */
     public function destroy($id)
     {
-        /* $permiso = Permiso::findOrFail($id);
-        $permiso->delete();
-        return redirect()->route('permiso.index')->with('status', 'eliminado'); */
+        $permission = Permission::findOrFail($id);
+        $permission->delete();
+        return redirect()->route('permission.index')->with('status', 'eliminado');
     }
 }

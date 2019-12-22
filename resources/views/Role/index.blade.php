@@ -16,12 +16,12 @@
         <th scope="col">Creado</th>
         <th class="text-center">
             <div>
-                <a href="/" class="btn btn-primary" id="volver"  
+                <a href="/" class="btn btn-primary btn-sm" id="volver"  
                 data-toggle="tooltip" title="volver a roles">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 Regresar
                 </a>
-                <a href="/role/create" class="btn btn-primary" id="nuevo"  
+                <a href="/role/create" class="btn btn-primary btn-sm" id="nuevo"  
                 data-toggle="tooltip" title="Nuevo role">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Nuevo
@@ -38,7 +38,7 @@
                     <td class="align-middle">{{$role->created_at}}</td>
                     <td class="text-center align-middle">
                         <a href="/role/{{$role->id}}"><i class="btn btn-info btn-sm fa fa-eye" style="margin-right: 10px"></i></a>
-                        <form method="POST" action="/rolee/{{$role->id}}" accept-charset="UTF-8" style="display:inline">
+                        <form method="POST" action="/role/{{$role->id}}" accept-charset="UTF-8" style="display:inline">
                             @csrf
                             @method('DELETE')				
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash"></button>				

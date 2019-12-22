@@ -13,8 +13,8 @@
 				<form method="POST" action="/local" accept-charset="UTF-8" style="display:inline">
 					@csrf			
 					<div class="form-group">
-						<label for="comuna">Local</label>
-						<input type="text" class="form-control" name="localNom" id="nombre" aria-describedby="comunalHelp">
+						<label for="localName">Local</label>
+						<input type="text" class="form-control" name="name" id="localName" aria-describedby="comunalHelp">
 						<small id="comunalHelp" class="form-text text-muted">Nombre del Local.</small>
 					</div>
 					<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Grabar </button>				

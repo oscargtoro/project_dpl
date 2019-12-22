@@ -86,9 +86,9 @@
 
                 <div class="links">
                     <a href="/product">Productos</a>
-                    <a href="/ciudad">Ciudades</a>
+                    <a href="/city">Ciudades</a>
                     <a href="/local">locales</a>
-                    <a href="/permiso">permisos</a>
+                    <a href="/permission">permisos</a>
                     <a href="/role">Roles</a>
                 </div>
             </div>

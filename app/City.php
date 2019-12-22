@@ -3,10 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Ciudad extends Model
+class City extends Model
 {
-    protected $table = 'tb_ciudades';
-    protected $fillable = ['ciudadNom'];
-    protected $primaryKey = 'ciudadCod';
+    use SoftDeletes;
 }

@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 Route::resources([
-    'ciudad' => 'CityController',
+    'city' => 'CityController',
     'product' => 'ProductController',
     'local' => 'LocalController',
-    'permiso' => 'PermissionController',
+    'permission' => 'PermissionController',
     'role' => 'RoleController'
 ]);

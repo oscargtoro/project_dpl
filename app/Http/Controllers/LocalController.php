@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Local;
 
 class LocalController extends Controller
@@ -15,8 +14,8 @@ class LocalController extends Controller
      */
     public function index()
     {
-        $locales = DB::table('tb_locales')->orderBy('localNom')->get();
-        return view('local.index', compact('locales'));
+        $locals = Local::all()->sortBy('name');
+        return view('local.index', compact('locals'));
     }
 
     /**
@@ -38,7 +37,7 @@ class LocalController extends Controller
     public function store(Request $request)
     {
         $local = new Local;
-        $local->localNom = $request->localNom;
+        $local->name = $request->name;
         $local->save();
         return redirect()->route('local.index')->with('status', 'guardado');
     }
@@ -76,7 +75,7 @@ class LocalController extends Controller
     public function update(Request $request, $id)
     {
         $local = Local::findOrFail($id);
-        $local->localNom = $request->localNom;
+        $local->name = $request->name;
         $local->save();
         return redirect()->route('local.index')->with('status', 'actualizado');
     }

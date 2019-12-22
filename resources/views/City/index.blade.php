@@ -15,7 +15,12 @@
         <th scope="col">Codigo</th>
         <th scope="col">Ciudad</th>
         <th class="text-center">
-            <a href="/ciudad/create" class="btn btn-primary btn-sm" id="nuevo"  
+            <a href="/" class="btn btn-primary btn-sm" id="volver"  
+                data-toggle="tooltip" title="volver a roles">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Regresar
+                </a>
+            <a href="/city/create" class="btn btn-primary btn-sm" id="nuevo"  
                 data-toggle="tooltip" title="Nueva Ciudad">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Nueva
@@ -25,18 +30,18 @@
     </thead>
     <tbody>
         @include('common.success')
-            @foreach($ciudades as $ciudad)
+            @foreach($cities as $city)
                 <tr>
-                    <td>{{$ciudad->ciudadCod}}</td>
-                    <td>{{$ciudad->ciudadNom}}</td>
+                    <td>{{$city->id}}</td>
+                    <td>{{$city->name}}</td>
                     <td class="text-center">
-                        <form method="POST" action="/ciudad/{{$ciudad->ciudadCod}}" accept-charset="UTF-8" 
+                        <form method="POST" action="/city/{{$city->id}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
                             <input name="_method" type="hidden" value="DELETE">					
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
                         </form>
-                        <a href="/ciudad/{{$ciudad->ciudadCod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                        <a href="/city/{{$city->id}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach

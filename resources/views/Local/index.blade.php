@@ -15,6 +15,11 @@
         <th scope="col">Codigo</th>
         <th scope="col">Local</th>
         <th class="text-center">
+            <a href="/" class="btn btn-primary btn-sm" id="volver"  
+                data-toggle="tooltip" title="volver a roles">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Regresar
+                </a>
             <a href="/local/create" class="btn btn-primary btn-sm" id="nuevo"  
                 data-toggle="tooltip" title="Nuevo local">
                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -25,18 +30,18 @@
     </thead>
     <tbody>
         @include('common.success')
-            @foreach($locales as $local)
+            @foreach($locals as $local)
                 <tr>
-                    <td>{{$local->localCod}}</td>
-                    <td>{{$local->localNom}}</td>
+                    <td>{{$local->id}}</td>
+                    <td>{{$local->name}}</td>
                     <td class="text-center">
-                        <form method="POST" action="/local/{{$local->localCod}}" accept-charset="UTF-8" 
+                        <form method="POST" action="/local/{{$local->id}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
                             @method('DELETE')				
                             <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
                         </form>
-                        <a href="/local/{{$local->localCod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                        <a href="/local/{{$local->id}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach

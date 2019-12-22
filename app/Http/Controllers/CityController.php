@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-use App\Ciudad;
+use App\City;
 
-class CiudadController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,8 @@ class CiudadController extends Controller
      */
     public function index()
     {
-        $ciudades = DB::table('tb_ciudades')
-                    ->orderBy('ciudadNom')
-                    ->get();
-        return view('Ciudad.index', compact('ciudades'));
+        $cities = City::all()->sortBy('name');
+        return view('city.index', compact('cities'));
     }
 
     /**
@@ -40,9 +37,9 @@ class CiudadController extends Controller
      */
     public function store(Request $request)
     {
-        $ciudad = new Ciudad;
-        $ciudad->ciudadNom = $request->ciudadNom;
-        $ciudad->save();
+        $city = new City;
+        $city->name = $request->name;
+        $city->save();
         return redirect()->route('city.index')->with('status', 'guardado');
     }
 
@@ -65,8 +62,8 @@ class CiudadController extends Controller
      */
     public function edit($id)
     {
-        $ciudad = Ciudad::findOrFail($id);
-        return view('city.edit', compact('ciudad'));
+        $city = City::findOrFail($id);
+        return view('city.edit', compact('city'));
     }
 
     /**
@@ -78,9 +75,9 @@ class CiudadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ciudad = Ciudad::findOrFail($id);
-        $ciudad->fill($request->all());
-        $ciudad->save();
+        $city = city::findOrFail($id);
+        $city->name = $request->name;
+        $city->save();
         return redirect()->route('city.index')->with('status', 'actualizado');
     }
 
@@ -92,8 +89,8 @@ class CiudadController extends Controller
      */
     public function destroy($id)
     {
-        $ciudad = Ciudad::findOrFail($id);
-        $ciudad->delete();
+        $city = City::findOrFail($id);
+        $city->delete();
         return redirect()->route('city.index')->with('status', 'eliminado');
     }
 }
