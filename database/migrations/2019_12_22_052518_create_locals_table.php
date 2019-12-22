@@ -13,7 +13,7 @@ class CreateLocalsTable extends Migration
      */
     public function up()
     {
-        Schema::table('locals', function (Blueprint $table) {
+        Schema::create('locals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
@@ -28,8 +28,6 @@ class CreateLocalsTable extends Migration
      */
     public function down()
     {
-        Schema::table('locals', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('locals');
     }
 }
